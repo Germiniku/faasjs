@@ -1,0 +1,10 @@
+{
+  "name": "simple",
+  "arguments": [
+    {
+      "name": "provider",
+      "type": "string",
+      "enum": ["tencentcloud"]
+    }
+  ]
+}

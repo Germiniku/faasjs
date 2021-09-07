@@ -256,31 +256,32 @@ coverage/
 
   if (answers.example) {
     writeFileSync(join(answers.name, 'index.func.ts'),
-      `import { useFunc } from '@faasjs/func';
-import { useHttp } from '@faasjs/http';
+      `import { useFunc } from '@faasjs/func'
+import { useHttp } from '@faasjs/http'
 
 export default useFunc(function () {
-  useHttp();
+  useHttp()
 
   return async function () {
-    return 'Hello, world';
-  };
-});
+    return 'Hello, world'
+  }
+})
 `)
 
     mkdirSync(join(answers.name, '__tests__'))
     writeFileSync(join(answers.name, '__tests__', 'index.test.ts'),
-      `import { FuncWarpper } from '@faasjs/test';
+      `import { FuncWarpper } from '@faasjs/test'
+import Func from '../index.func'
 
 describe('hello', function () {
   test('should work', async function () {
-    const func = new FuncWarpper(require.resolve('../index.func'));
+    const func = new FuncWarpper(Func)
 
-    const { data } = await func.JSONhandler<string>({});
+    const { data } = await func.JSONhandler<string>({})
 
-    expect(data).toEqual('Hello, world');
-  });
-});
+    expect(data).toEqual('Hello, world')
+  })
+})
 `)
 
     execSync(`yarn --cwd ${answers.name} jest`, { stdio: 'inherit' })
