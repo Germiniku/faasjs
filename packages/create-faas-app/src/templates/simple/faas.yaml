@@ -1,0 +1,20 @@
+defaults:
+  providers:
+    tencentcloud:
+      type: '@faasjs/tencentcloud'
+      config: # https://faasjs.com/guide/tencentcloud.html
+        appId: <%= appId || '' %>
+        secretId: <%= secretId || '' %>
+        secretKey: <%= secretKey || '' %>
+        region: <%= region || '' %>
+  plugins:
+    cloud_function:
+      provider: tencentcloud
+      type: cloud_function
+    http:
+      provider: tencentcloud
+      type: http
+development:
+testing:
+staging:
+production:

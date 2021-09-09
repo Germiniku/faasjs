@@ -4,7 +4,31 @@
     {
       "name": "provider",
       "type": "string",
-      "enum": ["tencentcloud"]
+      "in": ["tencentcloud"]
+    },
+    {
+      "name": "region",
+      "type": "string",
+      "in": ["ap-beijing", "ap-shanghai", "ap-guangzhou", "ap-hongkong"]
+    },
+    {
+      "name": "appId",
+      "type": "string",
+      "match": "^[0-9]+$"
+    },
+    {
+      "name": "secretId",
+      "type": "string",
+      "match": "^[a-zA-Z0-9]+$"
+    },
+    {
+      "name": "secretKey",
+      "type": "string",
+      "match": "^[a-zA-Z0-9]+$"
     }
+  ],
+  "files": [
+    "faas.yaml",
+    "package.json"
   ]
 }

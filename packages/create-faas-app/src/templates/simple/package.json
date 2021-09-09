@@ -1,0 +1,38 @@
+{
+  "name": "<%= name %>",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "serve": "faas server",
+    "lint": "eslint --ext .ts .",
+    "test": "jest"
+  },
+  "dependencies": {
+    "faasjs": "beta",
+    "@faasjs/eslint-config-recommended": "beta"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@faasjs/recommended"
+    ]
+  },
+  "eslintIgnore": [
+    "tmp",
+    "coverage"
+  ],
+  "jest": {
+    "verbose": false,
+    "transform": {
+      ".(jsx|tsx?)": "@sucrase/jest-plugin"
+    },
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.ts"
+    ],
+    "testRegex": "/*\\\\.test\\\\.ts$",
+    "modulePathIgnorePatterns": [
+      "/tmp/",
+      "/coverage/"
+    ]
+  }
+}

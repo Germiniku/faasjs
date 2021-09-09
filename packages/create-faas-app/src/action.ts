@@ -133,29 +133,6 @@ export async function action (options: {
 
   mkdirSync(answers.name)
 
-  writeFileSync(join(answers.name, 'faas.yaml'),
-    `defaults:
-  providers:
-    tencentcloud:
-      type: '@faasjs/tencentcloud'
-      config: # https://faasjs.com/guide/tencentcloud.html
-        appId: ${answers.appId || ''}
-        secretId: ${answers.secretId || ''}
-        secretKey: ${answers.secretKey || ''}
-        region: ${answers.region || ''}
-  plugins:
-    cloud_function:
-      provider: tencentcloud
-      type: cloud_function
-    http:
-      provider: tencentcloud
-      type: http
-development:
-testing:
-staging:
-production:
-`)
-
   writeFileSync(join(answers.name, 'package.json'),
     `{
   "name": "${answers.name}",
